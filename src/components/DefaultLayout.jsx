@@ -14,7 +14,7 @@ export default function DefaultLayout() {
     return (
         <div id="defaultLayout">
             <aside>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/dashboard">Books</Link>
                 <Link to="/users">Users</Link>
             </aside>
             <div className="content">
@@ -24,7 +24,7 @@ export default function DefaultLayout() {
                     </div>
                     <div>
                         {user.name}
-                        <a href="#" className="btn-logout" onClick={onLogout}>Logout</a>
+                        <a href="/login" className="btn-logout" onClick={onLogout}>Logout</a>
                     </div>
                 </header>
                 <main>
