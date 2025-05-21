@@ -1,233 +1,289 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;700;900;1,300;1,400&display=swap');
 
 * {
     box-sizing: border-box;
 }
 html, body, #root, #defaultLayout, #guestLayout {
     min-height: 100vh;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 14px;
-    color: #212121;
-    background-color: #f6f6f6;
 }
 
+/* Body with book background and warm mid-tone colors */
+body {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16px;
+    color: #4B3B2B; /* Warm dark brown text */
+    background-color: #efe6dc; /* Light warm paper color as fallback */
+    background-image: url('https://www.transparenttextures.com/patterns/pw-pattern.png'); /* subtle paper texture */
+    background-repeat: repeat;
+    background-size: auto;
+    line-height: 1.6;
+}
+
+/* Headings and paragraphs */
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 0 1rem 0;
+    color: #4B3B2B;
+    line-height: 1.3;
+    /* Maintain font family from body */
+}
+
+/* Inputs styled like old book pages */
 input {
-    outline: 0;
-    background: #ffffff;
+    outline: none;
+    background: #f9f4ec; /* pale parchment */
     width: 100%;
-    border: 2px solid #e6e6e6;
-    margin: 0 0 15px;
+    border: 2px solid #b19b7b; /* light tan */
+    margin-bottom: 15px;
     padding: 15px;
     box-sizing: border-box;
-    font-size: 14px;
-    transition: all 0.3s;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    color: #4B3B2B;
+    transition: border-color 0.3s ease;
+    border-radius: 6px;
 }
 
 input:focus {
-    border-color: #5b08a7;
+    border-color: #7d5a2f; /* darker warm brown on focus */
 }
 
+/* Buttons */
 .btn,
 .btn-add,
 .btn-edit,
 .btn-delete {
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    background: #5b08a7;
-    border: 0;
-    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    background-color: #8B6D5C; /* classic leather brown */
+    color: #f3eee8; /* cream text */
+    border: none;
     padding: 15px;
-    color: #FFFFFF;
     font-size: 16px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(139, 109, 92, 0.6);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    background-color: #6a5544; /* darker brown on hover */
+    box-shadow: 0 4px 10px rgba(106, 85, 68, 0.8);
 }
 
 .btn-block {
     width: 100%;
 }
 
-.btn-add,
-.btn-edit,
-.btn-delete{
-    padding: 0.5rem 0.75rem;
-    font-size: 14px;
-    border-radius: 4px;
-}
+/* Specific button variants */
 .btn-add {
-    background-color: #00a762;
-}
-.btn-delete {
-    background-color: #b72424;
+    background-color: #726250; /* muted mossy brown */
 }
 
+.btn-add:hover {
+    background-color: #5a4f3f;
+}
+
+.btn-delete {
+    background-color: #a74a3e; /* deep brick red */
+}
+
+.btn-delete:hover {
+    background-color: #83392f;
+}
+
+/* Logout button */
 .btn-logout {
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    color: #212121;
-    transition: all 0.3s;
+    color: #4B3B2B;
     border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background: transparent;
+    border: 1.5px solid transparent;
 }
+
 .btn-logout:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(139, 109, 92, 0.15);
+    border-color: #8B6D5C;
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
-    background: #5b08a7;
-}
-
+/* Centering text helper */
 .text-center {
     text-align: center;
 }
 
+/* Tables styled like old ledger paper */
 table {
     width: 100%;
-    border-spacing: 0;
     border-collapse: collapse;
+    background-color: #faf4eb; /* very light parchment */
+    border: 1.5px solid #b19b7b;
+    border-radius: 8px;
 }
 
 table > thead > tr > th {
+    background-color: #d6c7a1; /* warm tan */
+    padding: 0.75rem 1rem;
     text-align: left;
-    padding: 0.5rem 0.5rem;
-    background-color: #efefef;
+    color: #5a4a34;
+    font-weight: 700;
+    border-bottom: 1.5px solid #b19b7b;
 }
 
 table > tbody > tr > td {
-    padding: 0.5rem 0.5rem;
-    border-bottom: 1px solid #efefef;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #b19b7b;
+    color: #4B3B2B;
     white-space: nowrap;
 }
 
+/* Cards with subtle shimmer like book pages */
 .card {
-    background-color: #FFF;
-    border-radius: 0.5rem;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
+    background-color: #faf4eb; /* soft parchment */
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(139, 109, 92, 0.3);
+    padding: 1.5rem 2rem;
+    margin: 0.5rem 0 1rem 0;
+    font-family: 'Merriweather', serif;
+    color: #4B3B2B;
 }
 
+/* Alerts in warm red, styled softly */
 .alert {
     padding: 1rem;
-    background-color: #ff4040;
-    color: white;
+    background-color: #b7443e;
+    color: #faece7;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
 }
 
+/* Notification with a warm green */
 .notification {
     position: fixed;
     right: 1rem;
     bottom: 1rem;
     z-index: 100;
     padding: 1rem 1.5rem;
-    background-color: #00a762;
-    color: white;
+    background-color: #6a8d5f; /* muted olive green */
+    color: #f3eee8;
     border-radius: 0.5rem;
+    font-family: 'Merriweather', serif;
 }
 
-/* Login/Signup forms*/
+/* Login/Signup forms */
 
 .login-signup-form {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent; /* Let background show through */
 }
 
 .login-signup-form .form {
     width: 360px;
+    background: #fbf6ef; /* light parchment color */
+    padding: 34px;
+    box-shadow: 2px 2px 12px rgba(139, 109, 92, 0.5);
+    border-radius: 12px;
+    font-family: 'Merriweather', serif;
+    color: #4B3B2B;
+    max-width: 360px;
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
-    max-width: 360px;
-    padding: 34px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .login-signup-form .title {
-    font-size: 20px;
-    margin-bottom: 1rem;
+    font-size: 24px;
+    margin-bottom: 1.5rem;
     text-align: center;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
 }
 
 .login-signup-form .form .message {
-    margin: 15px 0 0;
-    color: #b3b3b3;
+    margin-top: 15px;
+    color: #8B6D5C;
     font-size: 16px;
     text-align: center;
 }
 
 .login-signup-form .form .message a {
-    color: #5b08a7;
-    text-decoration: none;
+    color: #5b3e1e; /* dark golden brown */
+    text-decoration: underline;
+    font-weight: 600;
 }
 
-/* Login/Signup form */
-
+/* Default Layout */
 
 #defaultLayout {
     display: flex;
+    font-family: 'Merriweather', serif;
 }
 
 #defaultLayout aside {
     width: 240px;
-    background-color: #5b08a7;
-    padding: 1rem
+    background-color: #7a5e3a; /* leather brown */
+    padding: 1rem;
+    color: #f3eee8;
+    box-shadow: inset 2px 0 8px rgba(0,0,0,0.25);
 }
 
 #defaultLayout aside > a {
     display: block;
     padding: 0.75rem 1rem;
-    border-radius: 6px;
-    color: white;
+    border-radius: 8px;
+    color: #f3eee8;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease;
+    font-weight: 600;
 }
 
 #defaultLayout aside > a:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(243, 238, 232, 0.3);
+    color: #553f1d;
 }
 
 #defaultLayout .content {
     flex: 1;
+    background-color: #fbf6ef; /* light parchment */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #defaultLayout header {
     height: 80px;
-    padding: 2rem 3rem;
-    background-color: white;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 3rem;
+    background-color: #e7d8b3; /* soft cream */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #5a442a;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 1.125rem;
 }
 
 #defaultLayout main {
-    padding: 2rem;
+    padding: 2rem 3rem;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .animated {
-    -webkit-animation-duration: 0.3s;
     animation-duration: 0.3s;
-    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
 .fadeInDown {
-    -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
 }
 

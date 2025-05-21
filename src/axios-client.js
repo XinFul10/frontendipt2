@@ -1,28 +1,30 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-    baseURL: `${import.meta.env.VITE_API_BASE_URL}`
-})
+    baseURL: `${import.meta.env.VITE_API_BASE_URL}`,
+    // withCredentials: true, // Only needed if using Laravel Sanctum with cookies
+});
 
 axiosClient.interceptors.request.use((config) => {
     const token = localStorage.getItem('ACCESS_TOKEN');
-    config.headers.Authorization = `Bearer ${token}`
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
-})
+});
 
 axiosClient.interceptors.response.use((response) => {
     return response;
 }, (error) => {
     try {
-        const {response} = error;
+        const { response } = error;
         if (response.status === 401) {
-            localStorage.removeItem('ACCESS_TOKEN')
+            localStorage.removeItem('ACCESS_TOKEN');
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.error(e);
     }
     throw error;
-})
+});
 
 export default axiosClient;
