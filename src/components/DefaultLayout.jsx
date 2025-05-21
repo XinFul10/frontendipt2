@@ -1,18 +1,19 @@
-import {Link, Navigate, Outlet} from "react-router-dom";
-import {useStateContext} from "../contexts/ContextProvider";
+import { Link, Navigate, Outlet } from "react-router-dom";
+import { useStateContext } from "../contexts/ContextProvider";
 
 export default function DefaultLayout() {
-    const {user, token, setUser, setToken} = useStateContext()
+    const { user, token, setUser, setToken } = useStateContext();
 
-    if (!token){
-        return <Navigate to="/login"/>
+    if (!token) {
+        return <Navigate to="/login" />;
     }
 
     const onLogout = (ev) => {
         ev.preventDefault();
         setUser(null);
         setToken(null);
-    }
+    };
+
     return (
         <div id="defaultLayout">
             <aside>
@@ -21,18 +22,18 @@ export default function DefaultLayout() {
             </aside>
             <div className="content">
                 <header>
+                    <div>Library Management System</div>
                     <div>
-                        Library Management System
-                    </div>
-                    <div>
-                        {user.name}
-                        <a href="#" className="btn-logout" onClick={onLogout}>Logout</a>
+                        {user?.name}
+                        <a href="#" className="btn-logout" onClick={onLogout}>
+                            Logout
+                        </a>
                     </div>
                 </header>
                 <main>
-                    <Outlet/>
+                    <Outlet />
                 </main>
             </div>
         </div>
-    )
+    );
 }
