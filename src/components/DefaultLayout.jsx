@@ -22,7 +22,7 @@ export default function DefaultLayout() {
             <div className="content">
                 <header>
                     <div>
-                        Library Management System
+                        <h1>Library Management System</h1>
                     </div>
                     <div>
                         {user.name}
